@@ -1,0 +1,9 @@
+{
+    "name": "chili-copilot",
+    "version": "0.6.1",
+    "description": "AI copilot orchestration for Chili3D — provider abstraction, planner, executor",
+    "main": "src/index.ts",
+    "devDependencies": {
+        "chili-core": "*"
+    }
+}

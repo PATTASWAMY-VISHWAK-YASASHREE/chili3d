@@ -1,0 +1,60 @@
+.resourceHud {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    color: var(--text-color, #cccccc);
+    background: var(--statusbar-background-color, #1e1e1e);
+    white-space: nowrap;
+}
+
+.modelName {
+    font-weight: bold;
+    color: #60a5fa;
+}
+
+.modelName::before {
+    content: "🤖 ";
+}
+
+.tokenUsage {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tokenUsage::before {
+    content: "📊 ";
+}
+
+.tokenBar {
+    width: 60px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.tokenBarFill {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.cost {
+    color: #34d399;
+}
+
+.cost::before {
+    content: "💰 ";
+}
+
+.duration {
+    color: #a78bfa;
+}
+
+.duration::before {
+    content: "⏱ ";
+}

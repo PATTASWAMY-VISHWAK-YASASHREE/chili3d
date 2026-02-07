@@ -1,0 +1,118 @@
+.planPanel {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background: var(--panel-background-color, #1e1e1e);
+    color: var(--text-color, #cccccc);
+    border: 1px solid var(--border-color, #333333);
+    border-radius: 6px;
+    max-width: 400px;
+}
+
+.planTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.planTitle::before {
+    content: "📋 ";
+}
+
+.planDescription {
+    font-size: 13px;
+    color: var(--text-muted-color, #999999);
+    margin-bottom: 12px;
+}
+
+.constraints {
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+
+.constraintLabel {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.constraintItem {
+    padding: 2px 0;
+    padding-left: 12px;
+}
+
+.stepList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.stepItem {
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.stepIcon {
+    font-size: 14px;
+    width: 18px;
+    text-align: center;
+}
+
+.estimates {
+    font-size: 12px;
+    color: var(--text-muted-color, #999999);
+    margin-bottom: 12px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.btnApprove {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    background: #22c55e;
+    color: white;
+}
+
+.btnApprove:hover {
+    background: #16a34a;
+}
+
+.btnEdit {
+    padding: 6px 16px;
+    border: 1px solid var(--border-color, #555555);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    background: transparent;
+    color: var(--text-color, #cccccc);
+}
+
+.btnEdit:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btnReject {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    background: #ef4444;
+    color: white;
+}
+
+.btnReject:hover {
+    background: #dc2626;
+}
