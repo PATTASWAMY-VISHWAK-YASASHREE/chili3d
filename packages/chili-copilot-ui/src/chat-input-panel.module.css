@@ -1,0 +1,65 @@
+.chatInput {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 8px;
+    background: var(--panel-background-color, #1e1e1e);
+    border-top: 1px solid var(--border-color, #333333);
+}
+
+.inputField {
+    flex: 1;
+    min-height: 36px;
+    max-height: 120px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color, #555555);
+    border-radius: 6px;
+    background: var(--input-background-color, #2d2d2d);
+    color: var(--text-color, #cccccc);
+    font-size: 13px;
+    font-family: inherit;
+    resize: none;
+    outline: none;
+}
+
+.inputField:focus {
+    border-color: #3b82f6;
+}
+
+.inputField::placeholder {
+    color: var(--text-muted-color, #666666);
+}
+
+.sendBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #3b82f6;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.sendBtn:hover {
+    background: #2563eb;
+}
+
+.sendBtn:disabled {
+    background: #4b5563;
+    cursor: not-allowed;
+}
+
+.uploadBtn {
+    padding: 8px;
+    border: 1px solid var(--border-color, #555555);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-color, #cccccc);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.uploadBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
