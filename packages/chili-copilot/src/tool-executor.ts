@@ -21,8 +21,8 @@ export function validateToolInput(
     schema: Record<string, unknown>,
 ): { valid: boolean; errors: string[] } {
     const errors: string[] = [];
-    const required = (schema.required as string[] | undefined) ?? [];
-    const properties = (schema.properties as Record<string, Record<string, unknown>> | undefined) ?? {};
+    const required = (schema["required"] as string[] | undefined) ?? [];
+    const properties = (schema["properties"] as Record<string, Record<string, unknown>> | undefined) ?? {};
 
     for (const field of required) {
         if (!(field in input)) {
@@ -35,7 +35,7 @@ export function validateToolInput(
         if (!propSchema) {
             continue;
         }
-        const expectedType = propSchema.type as string | undefined;
+        const expectedType = (propSchema as Record<string, unknown>)["type"] as string | undefined;
         if (expectedType === "string" && typeof value !== "string") {
             errors.push(`Field '${key}' must be a string`);
         } else if (expectedType === "number" && typeof value !== "number") {

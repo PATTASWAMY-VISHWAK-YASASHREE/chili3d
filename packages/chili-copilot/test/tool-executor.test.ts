@@ -81,7 +81,7 @@ describe("ToolExecutor", () => {
                 properties: { value: { type: "number" } },
                 required: ["value"],
             },
-            execute: async (input) => ({ doubled: (input.value as number) * 2 }),
+            execute: async (input) => ({ doubled: (input["value"] as number) * 2 }),
         };
 
         executor.registerHandler("double", handler);

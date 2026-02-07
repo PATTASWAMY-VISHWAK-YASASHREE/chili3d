@@ -132,25 +132,25 @@ export class GoogleProvider extends BaseProvider {
                 .filter((c) => c.type === "text")
                 .map((c) => c.text)
                 .join("\n\n");
-            body.systemInstruction = { parts: [{ text: systemText }] };
+            body["systemInstruction"] = { parts: [{ text: systemText }] };
         }
 
         const generationConfig: Record<string, unknown> = {};
         if (request.temperature !== undefined) {
-            generationConfig.temperature = request.temperature;
+            generationConfig["temperature"] = request.temperature;
         }
         if (request.maxTokens !== undefined) {
-            generationConfig.maxOutputTokens = request.maxTokens;
+            generationConfig["maxOutputTokens"] = request.maxTokens;
         }
         if (request.responseFormat === "json") {
-            generationConfig.responseMimeType = "application/json";
+            generationConfig["responseMimeType"] = "application/json";
         }
         if (Object.keys(generationConfig).length > 0) {
-            body.generationConfig = generationConfig;
+            body["generationConfig"] = generationConfig;
         }
 
         if (request.tools && request.tools.length > 0) {
-            body.tools = [
+            body["tools"] = [
                 {
                     functionDeclarations: request.tools.map((t) => ({
                         name: t.name,

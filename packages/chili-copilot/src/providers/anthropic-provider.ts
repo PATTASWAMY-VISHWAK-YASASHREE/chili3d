@@ -112,14 +112,14 @@ export class AnthropicProvider extends BaseProvider {
                 .filter((c) => c.type === "text")
                 .map((c) => c.text)
                 .join("\n\n");
-            body.system = systemText;
+            body["system"] = systemText;
         }
 
         if (request.temperature !== undefined) {
-            body.temperature = request.temperature;
+            body["temperature"] = request.temperature;
         }
         if (request.tools && request.tools.length > 0) {
-            body.tools = request.tools.map((t) => ({
+            body["tools"] = request.tools.map((t) => ({
                 name: t.name,
                 description: t.description,
                 input_schema: t.parameters,
