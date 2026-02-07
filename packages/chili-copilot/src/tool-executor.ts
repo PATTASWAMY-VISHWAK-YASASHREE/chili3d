@@ -35,7 +35,7 @@ export function validateToolInput(
         if (!propSchema) {
             continue;
         }
-        const expectedType = propSchema["type"] as string | undefined;
+        const expectedType = (propSchema as Record<string, unknown>)["type"] as string | undefined;
         if (expectedType === "string" && typeof value !== "string") {
             errors.push(`Field '${key}' must be a string`);
         } else if (expectedType === "number" && typeof value !== "number") {
