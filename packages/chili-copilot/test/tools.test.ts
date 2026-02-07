@@ -10,7 +10,7 @@ describe("CAD_TOOLS", () => {
         expect(tool).toBeDefined();
         expect(tool!.description).toContain("2D sketch");
         expect(tool!.parameters).toBeDefined();
-        const required = tool!.parameters.required as string[];
+        const required = tool!.parameters["required"] as string[];
         expect(required).toContain("plane");
         expect(required).toContain("shapes");
     });
@@ -19,7 +19,7 @@ describe("CAD_TOOLS", () => {
         const tool = CAD_TOOLS.find((t) => t.name === "extrude");
         expect(tool).toBeDefined();
         expect(tool!.description).toContain("Extrude");
-        const required = tool!.parameters.required as string[];
+        const required = tool!.parameters["required"] as string[];
         expect(required).toContain("targetNodeId");
         expect(required).toContain("direction");
         expect(required).toContain("distance");
@@ -28,7 +28,7 @@ describe("CAD_TOOLS", () => {
     test("should define boolean_operation tool", () => {
         const tool = CAD_TOOLS.find((t) => t.name === "boolean_operation");
         expect(tool).toBeDefined();
-        const required = tool!.parameters.required as string[];
+        const required = tool!.parameters["required"] as string[];
         expect(required).toContain("operation");
         expect(required).toContain("bodyA");
         expect(required).toContain("bodyB");
@@ -37,14 +37,14 @@ describe("CAD_TOOLS", () => {
     test("should define set_material tool", () => {
         const tool = CAD_TOOLS.find((t) => t.name === "set_material");
         expect(tool).toBeDefined();
-        const required = tool!.parameters.required as string[];
+        const required = tool!.parameters["required"] as string[];
         expect(required).toContain("nodeId");
     });
 
     test("should define query_scene tool", () => {
         const tool = CAD_TOOLS.find((t) => t.name === "query_scene");
         expect(tool).toBeDefined();
-        const required = tool!.parameters.required as string[];
+        const required = tool!.parameters["required"] as string[];
         expect(required).toContain("query");
     });
 
@@ -55,8 +55,8 @@ describe("CAD_TOOLS", () => {
             expect(tool.description).toBeDefined();
             expect(typeof tool.description).toBe("string");
             expect(tool.parameters).toBeDefined();
-            expect(tool.parameters.type).toBe("object");
-            expect(tool.parameters.properties).toBeDefined();
+            expect(tool.parameters["type"]).toBe("object");
+            expect(tool.parameters["properties"]).toBeDefined();
         }
     });
 });

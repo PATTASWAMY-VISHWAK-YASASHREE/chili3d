@@ -93,8 +93,8 @@ export class ExecutorAgent {
                         const toolResult = await this.toolExecutor.execute(call);
                         if (toolResult.success && toolResult.data) {
                             const data = toolResult.data as Record<string, unknown>;
-                            if (data.nodeId) {
-                                nodeIds.push(data.nodeId as string);
+                            if (data["nodeId"]) {
+                                nodeIds.push(data["nodeId"] as string);
                             }
                         } else if (!toolResult.success) {
                             return {
