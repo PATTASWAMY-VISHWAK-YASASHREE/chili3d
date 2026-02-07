@@ -41,10 +41,12 @@ export class ThreeHelper {
         return new XYZ(vector.x, vector.y, vector.z);
     }
 
-    static fromXYZ(vector: Vector3Like): Vector3 {
+    static fromXYZ(vector: Vector3Like, target?: Vector3): Vector3 {
+        if (target) {
+            return target.set(vector.x, vector.y, vector.z);
+        }
         return new Vector3(vector.x, vector.y, vector.z);
     }
-
     static isPerspectiveCamera(camera: Camera): camera is PerspectiveCamera {
         return (camera as PerspectiveCamera).isPerspectiveCamera;
     }
