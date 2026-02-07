@@ -14,7 +14,7 @@ export class ApiKeyManager {
     /**
      * Derive an AES-GCM key from a user passphrase using PBKDF2.
      */
-    private static async deriveKey(passphrase: string, salt: Uint8Array): Promise<CryptoKey> {
+    private static async deriveKey(passphrase: string, salt: ArrayBuffer): Promise<CryptoKey> {
         const encoder = new TextEncoder();
         const keyMaterial = await crypto.subtle.importKey(
             "raw",
@@ -39,7 +39,7 @@ export class ApiKeyManager {
         const encoder = new TextEncoder();
         const salt = crypto.getRandomValues(new Uint8Array(16));
         const iv = crypto.getRandomValues(new Uint8Array(12));
-        const key = await ApiKeyManager.deriveKey(passphrase, salt);
+        const key = await ApiKeyManager.deriveKey(passphrase, salt.buffer);
 
         const encrypted = await crypto.subtle.encrypt(
             { name: ApiKeyManager.ALGO, iv },
@@ -71,7 +71,7 @@ export class ApiKeyManager {
             const salt = new Uint8Array(stored.salt);
             const iv = new Uint8Array(stored.iv);
             const data = new Uint8Array(stored.data);
-            const key = await ApiKeyManager.deriveKey(passphrase, salt);
+            const key = await ApiKeyManager.deriveKey(passphrase, salt.buffer);
 
             const decrypted = await crypto.subtle.decrypt({ name: ApiKeyManager.ALGO, iv }, key, data);
 

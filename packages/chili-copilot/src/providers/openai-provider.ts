@@ -118,16 +118,16 @@ export class OpenAIProvider extends BaseProvider {
         };
 
         if (request.temperature !== undefined) {
-            body.temperature = request.temperature;
+            body["temperature"] = request.temperature;
         }
         if (request.maxTokens !== undefined) {
-            body.max_tokens = request.maxTokens;
+            body["max_tokens"] = request.maxTokens;
         }
         if (request.responseFormat === "json") {
-            body.response_format = { type: "json_object" };
+            body["response_format"] = { type: "json_object" };
         }
         if (request.tools && request.tools.length > 0) {
-            body.tools = request.tools.map((t) => ({
+            body["tools"] = request.tools.map((t) => ({
                 type: "function",
                 function: {
                     name: t.name,
@@ -157,16 +157,16 @@ export class OpenAIProvider extends BaseProvider {
         const msg: Record<string, unknown> = {
             role: message.role,
             content:
-                content.length === 1 && (content[0] as Record<string, unknown>).type === "text"
-                    ? (content[0] as Record<string, string>).text
+                content.length === 1 && (content[0] as Record<string, unknown>)["type"] === "text"
+                    ? (content[0] as Record<string, string>)["text"]
                     : content,
         };
 
         if (message.toolCallId) {
-            msg.tool_call_id = message.toolCallId;
+            msg["tool_call_id"] = message.toolCallId;
         }
         if (message.name) {
-            msg.name = message.name;
+            msg["name"] = message.name;
         }
 
         return msg;
